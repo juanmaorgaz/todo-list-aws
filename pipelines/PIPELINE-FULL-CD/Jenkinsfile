@@ -14,13 +14,7 @@ pipeline {
                 sh script: """
                     set -x
                     git branch -a
-                    """, label: "git checkout -b develop origin/develop"
-                    """, label: "git checkout -b master origin/master"
-                    """, label: "git merge develop "
                     """, label: "Merging code to master"
-                """, label: "sshagent(['github']) {"
-                    """, label: "sh git push origin master"
-                }
 
             }
         }
