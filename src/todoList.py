@@ -47,8 +47,10 @@ def get_items(dynamodb=None):
 
 def put_item(text, dynamodb=None):
     table = get_table(dynamodb)
+    # comentario 1
     timestamp = str(time.time())
     print('Table name:' + table.name)
+    # comentario 2
     item = {
         'id': str(uuid.uuid1()),
         'text': text,
@@ -56,6 +58,7 @@ def put_item(text, dynamodb=None):
         'createdAt': timestamp,
         'updatedAt': timestamp,
     }
+    # comentario 3
     try:
         # write the todo to the database
         table.put_item(Item=item)
@@ -66,7 +69,7 @@ def put_item(text, dynamodb=None):
         }
 
     except ClientError as e:
-        print(e.response['Error']['Message'])  # pragma: no cover
+        print(e.response['Error']['Message'])
     else:
         return response
 
