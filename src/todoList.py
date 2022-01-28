@@ -66,7 +66,7 @@ def put_item(text, dynamodb=None):
         }
 
     except ClientError as e:
-        print(e.response['Error']['Message'])
+        print(e.response['Error']['Message'])  # pragma: no cover
     else:
         return response
 
