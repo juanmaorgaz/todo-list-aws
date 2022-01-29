@@ -35,14 +35,16 @@ def get_item(key, dynamodb=None):
     else:
         print('Result getItem:'+str(result))
         if 'Item' in result:
-            return result['Item']
+            varitem=result['Item']
+            return varitem
 
 
 def get_items(dynamodb=None):
     table = get_table(dynamodb)
     # fetch todo from the database
     result = table.scan()
-    return result['Items']
+    varitem=result['Item']
+    return varitem
 
 
 def put_item(text, dynamodb=None):
