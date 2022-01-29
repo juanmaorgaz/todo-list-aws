@@ -35,7 +35,7 @@ def get_item(key, dynamodb=None):
     else:
         print('Result getItem:'+str(result))
         if 'Item' in result:
-            item=result['Item']
+            item = result['Item']
             return item
 
 
@@ -43,7 +43,7 @@ def get_items(dynamodb=None):
     table = get_table(dynamodb)
     # fetch todo from the database
     result = table.scan()
-    items=result['Items']
+    items = result['Items']
     return items
 
 
@@ -99,7 +99,7 @@ def update_item(key, text, checked, dynamodb=None):
     except ClientError as e:
         print(e.response['Error']['Message'])  # pragma: no cover
     else:
-        attributes=result['Attributes']
+        attributes = result['Attributes']
         return attributes
 
 
